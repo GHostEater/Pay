@@ -1,0 +1,51 @@
+//Created by GHostEater on 07-Feb-17.
+div(ng-controller="SignUpCtrl as vm")
+    .row
+        .col-sm-8.col-sm-offset-2
+            .panel.panel-primary
+                .panel-heading
+                    h3.panel-title Register
+                .panel-body
+                    form(name="vm.form").form-horizontal
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="name" required placeholder='Name' ng-model="vm.name")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="username" required placeholder='Username' ng-model="vm.username")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="password" name="password" required placeholder='Password' ng-model="vm.password")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="email" required placeholder='E-Mail' ng-model="vm.email")
+                        .form-group
+                            .col-sm-12
+                                select.form-control(type="text" name="sex" required ng-model="vm.sex")
+                                    option(value='') --Select--
+                                    option(value='Male') Male
+                                    option(value='Female') Female
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="date" name="dateBirth" required placeholder='Date of Birth (yyyy-mm-dd)' ng-model="vm.dateBirth")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="state" required placeholder='State' ng-model="vm.state")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="city" required placeholder='City' ng-model="vm.city")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="acctNum" required placeholder='Account Number' ng-model="vm.acctNum")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="acctName" required placeholder='Account Name' ng-model="vm.acctName")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="bank" required placeholder='Bank' ng-model="vm.bank")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" name="phone" required placeholder='Phone Number' ng-model="vm.phone")
+                        .form-group
+                            .col-sm-12
+                                button.btn.btn-lg.btn-primary(ng-click="vm.ok()") Register

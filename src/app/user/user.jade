@@ -1,0 +1,30 @@
+//Created by GHostEater on 30-Jan-17.
+div(ng-controller="UserCtrl as vm")
+    .row.content
+        button.col-sm-2.btn.btn-lg.btn-primary(ng-click="vm.add()") Add User
+    .row
+        form.content.col-sm-4
+            input.form-control(type="text" placeholder="Search" ng-model="vm.searchTerm")
+    .table-responsive
+        table.table.table-striped.table-bordered
+            thead
+                th S/N
+                th Name
+                th Username
+                th E-Mail
+                th Sex
+                th State
+                th City
+                th Actions
+            tbody
+                tr(ng-repeat="(key,user) in vm.users | orderBy: '+name' | filter: vm.searchTerm")
+                    td {{key + 1}}
+                    td {{user.name}}
+                    td {{user.username}}
+                    td {{user.email}}
+                    td {{user.sex}}
+                    td {{user.state}}
+                    td {{user.city}}
+                    td
+                        button.btn.btn-warning(ng-click="vm.edit(user.id)") Edit
+                        button.btn.btn-danger(ng-click="vm.remove(user.id)") Delete

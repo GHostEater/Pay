@@ -1,0 +1,29 @@
+//Created by GHostEater on 29-Jan-17.
+.modal-header
+    h3.modal-title Add Super Admin
+.modal-body
+    form(name="vm.form").form-horizontal
+        .form-group
+            .col-sm-12
+                input.form-control(type="text" name="name" required placeholder='Name' ng-model="vm.name")
+        .form-group
+            .col-sm-12
+                input.form-control(type="text" name="username" required placeholder='Username' ng-model="vm.username")
+        .form-group
+            .col-sm-12
+                input.form-control(type="password" name="password" required placeholder='Password' ng-model="vm.password")
+        .form-group
+            .col-sm-12
+                input.form-control(type="text" name="acctNum" required placeholder='Account Number' ng-model="vm.acctNum")
+        .form-group
+            .col-sm-12
+                input.form-control(type="text" name="acctName" required placeholder='Account Name' ng-model="vm.acctName")
+        .form-group
+            .col-sm-12
+                input.form-control(type="text" name="bank" required placeholder='Bank' ng-model="vm.bank")
+        .form-group
+            .col-sm-12
+                input.form-control(type="text" name="phone" required placeholder='Phone Number' ng-model="vm.phone")
+.modal-footer
+    button.btn.btn-primary(ng-click="vm.ok()") Confirm
+    button.btn.btn-default(ng-click="$dismiss()") Cancel

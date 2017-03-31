@@ -1,0 +1,23 @@
+//Created by GHostEater on 31-Jan-17.
+div(ng-controller="SuperAdminProfileCtrl as vm")
+    .col-sm-6.col-sm-offset-3(ng-show="vm.pairings.length > 0")
+        .panel.panel-success
+            .panel-heading
+                h3.panel-title Expected Payments
+            .panel-body
+                .table-responsive
+                    table.table.table-striped.table-condensed
+                        thead
+                            th S/N
+                            th Name
+                            th Amount
+                            th Phone Number
+                            th Action
+                        tbody
+                            tr(ng-repeat="(key,pair) in vm.pairings")
+                                td {{key+1}}
+                                td {{pair.giver}}
+                                td {{pair.giverAmount | number:'0'}}
+                                td {{pair.giverPhone}}
+                                td
+                                    button.btn.btn-primary(ng-click="vm.confirm(pair.id,pair.giverId,pair.receiverId,pair.superStat,pair.giverAmount)") Confirm

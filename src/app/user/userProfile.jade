@@ -1,0 +1,102 @@
+//Created by GHostEater on 01-Feb-17.
+div(ng-controller="UserProfileCtrl as vm")
+    .row
+        .col-sm-6(ng-show="vm.toBePaid.length > 0" ng-class="{'col-sm-offset-3':vm.toPay.length > 0}")
+            .panel.panel-success
+                .panel-heading
+                    h3.panel-title Expected Payments
+                .panel-body
+                    .table-responsive
+                        table.table.table-striped.table-condensed
+                            thead
+                                th S/N
+                                th Name
+                                th Amount
+                                th Phone Number
+                                th Action
+                            tbody
+                                tr(ng-repeat="(key,pair) in vm.toBePaid")
+                                    td {{key+1}}
+                                    td {{pair.giver}}
+                                    td {{pair.giverAmount | number:'0'}}
+                                    td {{pair.giverPhone}}
+                                    td
+                                        button.btn.btn-primary(ng-click="vm.confirm(pair.id,pair.giverId,pair.receiverId,pair.superStat,pair.giverAmount)") Confirm
+        .col-sm-6(ng-show="vm.toPay.length > 0")
+            .panel.panel-success
+                .panel-heading
+                    h3.panel-title Payments To Make
+                .panel-body
+                    .table-responsive
+                        table.table.table-striped.table-condensed
+                            thead
+                                th S/N
+                                th Name
+                                th Amount
+                                th Phone Number
+                            tbody
+                                tr(ng-repeat="(key,pair) in vm.toPay")
+                                    td {{key+1}}
+                                    td {{pair.receiver}}
+                                    td {{pair.giverAmount | number:'0'}}
+                                    td {{pair.receiverPhone}}
+    .row
+        .col-sm-6.col-sm-offset-3
+            .panel.panel-primary
+                .panel-heading
+                    h3.panel-title My Profile
+                .panel-body
+                    h4.text-center Balance: {{vm.user.balance}}
+                    .table-responsive
+                        table.table.table-striped.table-condensed.table-bordered
+                            tr
+                                th Name
+                                td {{vm.user.name}}
+                            tr
+                                th Username
+                                td {{vm.user.username}}
+                            tr
+                                th E-Mail
+                                td {{vm.user.email}}
+                            tr
+                                th Sex
+                                td {{vm.user.sex}}
+                            tr
+                                th Date of Birth
+                                td {{vm.user.dateBirth | date:'dd-MMM-yyyy'}}
+                            tr
+                                th State
+                                td {{vm.user.state}}
+                            tr
+                                th City
+                                td {{vm.user.city}}
+                            tr
+                                th Account Number
+                                td {{vm.user.acctNum}}
+                            tr
+                                th Account Name
+                                td {{vm.user.acctName}}
+                            tr
+                                th Bank
+                                td {{vm.user.bank}}
+                            tr
+                                th Phone Number
+                                td {{vm.user.phone}}
+    .row
+        .col-sm-6
+            .col-sm-6
+                select.form-control(ng-model="vm.amount")
+                    option(value='') --Select Amount--
+                    option(value='5000') 5,000
+                    option(value='10000') 10,000
+                    option(value='20000') 20,000
+                    option(value='30000') 30,000
+                    option(value='40000') 40,000
+                    option(value='50000') 50,000
+                    option(value='60000') 60,000
+                    option(value='70000') 70,000
+                    option(value='80000') 80,000
+            .col-sm-6
+                button.btn.btn-primary(ng-click="vm.ph(vm.amount)") Provide Help
+        .col-sm-6(ng-show="vm.user.gh == 1")
+            button.btn.btn-lg.btn-primary.col-sm-10.col-sm-offset-1(ng-click="vm.gh()") Get Paid

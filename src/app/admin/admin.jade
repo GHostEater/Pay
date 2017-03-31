@@ -1,0 +1,22 @@
+//Created by GHostEater on 21-Aug-16.
+div(ng-controller="AdminCtrl as vm")
+    .row.content
+        button.col-sm-2.btn.btn-lg.btn-primary(ng-click="vm.add()") Add Admin
+    .row
+        form.content.col-sm-4
+            input.form-control(type="text" placeholder="Search" ng-model="vm.searchTerm")
+    .table-responsive
+        table.table.table-striped.table-bordered
+            thead
+                th S/N
+                th Name
+                th Username
+                th Actions
+            tbody
+                tr(ng-repeat="(key,admin) in vm.admins | orderBy: '+name' | filter: vm.searchTerm")
+                    td {{key + 1}}
+                    td {{admin.name}}
+                    td {{admin.username}}
+                    td
+                        button.btn.btn-warning(ng-click="vm.edit(admin.id)") Edit
+                        button.btn.btn-danger(ng-click="vm.remove(admin.id)") Delete

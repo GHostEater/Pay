@@ -1,0 +1,29 @@
+//Created by GHostEater on 29-Jan-17.
+div(ng-controller="SuperAdminCtrl as vm")
+    .row.content
+        button.col-sm-2.btn.btn-lg.btn-primary(ng-click="vm.add()") Add Super Admin
+        button.col-sm-2.col-sm-offset-1.btn.btn-lg.btn-warning(ng-click="vm.pair()") Pair Super Admins
+    .row
+        form.content.col-sm-4
+            input.form-control(type="text" placeholder="Search" ng-model="vm.searchTerm")
+    .table-responsive
+        table.table.table-striped.table-bordered
+            thead
+                th S/N
+                th Name
+                th Username
+                th Account Number
+                th Account Name
+                th Bank
+                th Actions
+            tbody
+                tr(ng-repeat="(key,superAdmin) in vm.superAdmins | orderBy: '+name' | filter: vm.searchTerm")
+                    td {{key + 1}}
+                    td {{superAdmin.name}}
+                    td {{superAdmin.username}}
+                    td {{superAdmin.acctNum}}
+                    td {{superAdmin.acctName}}
+                    td {{superAdmin.bank}}
+                    td
+                        button.btn.btn-warning(ng-click="vm.edit(superAdmin.id)") Edit
+                        button.btn.btn-danger(ng-click="vm.remove(superAdmin.id)") Delete

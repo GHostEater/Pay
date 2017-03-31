@@ -1,0 +1,17 @@
+//Created by GHostEater on 19-Feb-16.
+div(ng-controller="AdminLoginController as vm")
+    .row
+        section.col-sm-4.col-sm-offset-4
+            form(name="form")
+                .panel.panel-primary
+                    .panel-heading Admin Login
+                    .panel-body
+                        select.form-control(ng-model="vm.option")
+                            option(value="") Select
+                            option(value="super") Super Admin
+                            option(value="admin") Admin
+                        small.text-danger(ng-show="vm.userError === true") Username is Incorrect
+                        input.form-control(type="text" ng-model="vm.username" placeholder="Username")
+                        small.text-danger(ng-show="vm.passError === true") Password is Incorrect
+                        input.form-control(type="password" ng-model="vm.password" placeholder="Password")
+                        button.btn.btn-primary.form-control(ng-click="vm.login(vm.username,vm.password,vm.option)") Login

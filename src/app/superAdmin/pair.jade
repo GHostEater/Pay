@@ -1,0 +1,18 @@
+//Created by GHostEater on 31-Jan-17.
+.modal-header
+    h3.modal-title Pair Super Admins
+.modal-body
+    p.text-center Are You Sure
+    select.form-control(ng-model='vm.amount')
+        option(value='') --Select Amount--
+        option(value='10000') 10,000
+        option(value='20000') 20,000
+        option(value='30000') 30,000
+        option(value='40000') 40,000
+        option(value='50000') 50,000
+        option(value='60000') 60,000
+        option(value='70000') 70,000
+        option(value='80000') 80,000
+.modal-footer
+    button.btn.btn-danger(ng-click="vm.ok()") Confirm
+    button.btn.btn-default(ng-click="$dismiss()") Cancel

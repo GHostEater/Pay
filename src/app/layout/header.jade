@@ -1,0 +1,25 @@
+//Created by GHostEater on 23-Jan-16.
+nav.navbar.navbar-default(ng-controller = "HeaderController as vm")
+    .container-fluid
+        .navbar-header
+            button.navbar-toggle(type="button",data-toggle="collapse",data-target="#collapse")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(ui-sref="home") Get Paid
+        #collapse.collapse.navbar-collapse
+            ul.nav.navbar-nav
+                li(ui-sref-active="active" ng-show="vm.user.rank == 1 || vm.user.rank == 2")
+                    a(ui-sref="adminDash") Admin Dashboard
+                li(ui-sref-active="active")
+                    a(ui-sref="home") Home
+            .navbar-right.navbar-form
+                div(ng-show="!vm.user.loggedIn")
+                    a.btn.btn-primary(ui-sref="userLogin") Login
+                    a.btn.btn-warning(ui-sref="signUp") Register
+                div(ng-show="vm.user.loggedIn")
+                    span.text-success &nbspHello {{vm.user.name}}&nbsp
+                    span(ng-show="vm.user.rank == 3")
+                        a.btn.btn-success(ui-sref="userProfile") My Profile
+                    button.btn.btn-danger(ng-click="vm.logOut()") Logout

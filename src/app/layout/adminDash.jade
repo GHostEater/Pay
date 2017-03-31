@@ -1,0 +1,19 @@
+//Created by GHostEater on 21-Aug-16.
+.row
+    .col-sm-2(ng-controller="AdminDashController as vm")
+        .panel.panel-primary.text-center
+            .panel-heading
+                h3.panel-title Dashboard
+            .panel-body
+                ul.nav.nav-pills.nav-stacked
+                    li(ui-sref-active="active" ng-show='vm.user.rank == 1')
+                        a(ui-sref="supers") Super Admins
+                    li(ui-sref-active="active" ng-show='vm.user.rank == 1')
+                        a(ui-sref="admins") Admins
+                    li(ui-sref-active="active" ng-show='vm.user.rank == 1 || vm.user.rank == 2')
+                        a(ui-sref="users") Users
+                    li(ui-sref-active="active" ng-show='vm.user.rank == 1')
+                        a(ui-sref="superProfile")
+                            span.badge(ng-show="vm.pairings.length > 0") {{vm.pairings.length}}
+                            span &nbspMy Profile
+    .col-sm-10(ui-view)
